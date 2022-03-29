@@ -1,0 +1,142 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Class {
+  _id: ID!
+  name: String!
+  students: [Student!]!
+  teacherName: String!
+  totalMember: Float!
+}
+
+input CreateClassInput {
+  name: String!
+  teacherName: String!
+}
+
+input CreateScoreInput {
+  dateToSendMail: DateTime
+  hourToSendMail: Boolean
+  score: Float!
+  student: String!
+  subject: String!
+}
+
+input CreateStudentInput {
+  class: String!
+  dob: DateTime!
+  email: String!
+  gender: String!
+  name: String!
+}
+
+input CreateSubjectInput {
+  name: String!
+  type: String!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+input FindScoreInput {
+  _id: String!
+}
+
+input FindSubjectInput {
+  _id: String!
+}
+
+type Mutation {
+  CreateClass(createClassInput: CreateClassInput!): Class!
+  CreateScore(createScoreInput: CreateScoreInput!): Score!
+  CreateStudent(createStudentInput: CreateStudentInput!): Student!
+  CreateSubject(createSubjectInput: CreateSubjectInput!): Subject!
+  DeleteClass(removeClassInput: removeClassInput!): Class!
+  DeleteScore(removeScoreInput: removeScoreInput!): Score!
+  DeleteStudent(removeStudentInput: removeStudentInput!): Student!
+  DeleteSubject(removeSubjectInput: removeSubjectInput!): Subject!
+  UpdateClass(updateClassInput: UpdateClassInput!): Class!
+  UpdateScore(updateScoreInput: UpdateScoreInput!): Score!
+  UpdateStudent(updateStudentInput: UpdateStudentInput!): Student!
+  UpdateSubject(updateSubjectInput: UpdateSubjectInput!): Subject!
+}
+
+type Query {
+  FindClass: [Class!]!
+  FindClasses: [Class!]!
+  FindScore(findScoreInput: FindScoreInput!): Score!
+  FindScores: [Score!]!
+  FindStudent(id: String!): Student!
+  FindStudents: Student!
+  FindSubject(findSubjectInput: FindSubjectInput!): Subject!
+  FindSubjects: [Subject!]!
+}
+
+type Score {
+  _id: ID!
+  score: Float!
+  student: Student!
+  subject: Subject!
+}
+
+type Student {
+  _id: ID!
+  class: Class!
+  dob: DateTime!
+  email: String!
+  gender: String!
+  name: String!
+  scores: [Score!]!
+}
+
+type Subject {
+  _id: ID!
+  name: String!
+  scores: [Score!]!
+  type: String!
+}
+
+input UpdateClassInput {
+  _id: ID!
+  name: String
+  teacherName: String
+}
+
+input UpdateScoreInput {
+  _id: String!
+  score: Float
+}
+
+input UpdateStudentInput {
+  _id: String!
+  class: String
+  dob: DateTime
+  email: String
+  gender: String
+  name: String
+}
+
+input UpdateSubjectInput {
+  _id: String!
+  name: String
+  type: String
+}
+
+input removeClassInput {
+  _id: ID!
+}
+
+input removeScoreInput {
+  _id: String!
+}
+
+input removeStudentInput {
+  _id: ID!
+}
+
+input removeSubjectInput {
+  _id: String!
+}

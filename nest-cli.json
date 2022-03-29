@@ -1,0 +1,11 @@
+{
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "src",
+  "compilerOptions": {
+    "assets": [
+      "templates/hbs/*.hbs",
+      "templates/xlsx/*.xlsx"
+    ],
+    "watchAssets": true
+  }
+}

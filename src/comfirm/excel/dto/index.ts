@@ -1,0 +1,1 @@
+export { CreateExcelAddScoreDto } from './create-excel-add-score.dto';
